@@ -51,6 +51,20 @@ public class MainActivity extends Activity {
 				 sendSmsByVIntent();
 			 }
 		});
+		
+        //make button
+        Button action = (Button) findViewById(R.id.button1);
+        action.setOnClickListener(
+        		new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+						//send SMS
+					}
+        		}
+        );
+        
+        //make phone number array
     	makeNumbersArray(); 
 
 	}
