@@ -51,7 +51,8 @@ public class MainActivity extends Activity {
 				 sendSmsByVIntent();
 			 }
 		});
-		
+    	makeNumbersArray(); 
+
 	}
 	
 	public void sendSmsByManager() {
@@ -106,4 +107,84 @@ public class MainActivity extends Activity {
 		}
 
 	}
+    //set timer = false
+    boolean timerTruth = false;
+    
+    //timer stuff
+    //make new timer and timerTask
+    Timer timer;
+    TimerTask timert = new TimerTask() 
+    {
+         @Override
+         public void run() 
+         {
+               timerTruth = false;
+         }
+    };
+    
+    //make sendText method
+    public static void sendText() {
+    	
+    };
+    
+    @Override
+    public void onPause()
+    {
+       //send SMS
+    }
+    
+    //make method that collects phone numbers in array
+    public void makeNumbersArray() { 
+    	//make cursor that navigates contact data
+    	ContentResolver cr = getContentResolver(); 
+    	Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null); 	
+    	
+    	//initialize phone
+    	String phone = null; 
+
+    	//initialize array, initialize index
+    	String[] phoneNumbers = new String[cur.getCount()];
+    	int index = 0;
+
+    	//traverse contact data	
+    	if (cur.getCount() > 0) { 
+    		//check if more contacts are left
+    		while(cur.moveToNext()) { 
+    			//assign phone number to variable phone
+    			String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+    			if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) { 
+    				Cursor pCur = cr.query( ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[] { id }, null); 
+    				while(pCur.moveToNext()) { 
+    					phone = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)); 
+    				} 
+    				pCur.close();
+    			} 
+
+    			//put phone number in array
+    			phoneNumbers[index] = phone;
+    			index++;
+    		}
+    	}
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+}
 }
