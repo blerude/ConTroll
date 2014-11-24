@@ -20,8 +20,8 @@ public class MainActivity extends Activity {
 	private EditText phoneNumber;
 	private EditText smsBody;
 	private Button smsManagerBtn;
-	private Button smsSendToBtn;
-	private Button smsViewBtn;
+	//private Button smsSendToBtn;
+	//private Button smsViewBtn;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,8 @@ public class MainActivity extends Activity {
 		phoneNumber = (EditText) findViewById(R.id.phoneNumber);
 		smsBody = (EditText) findViewById(R.id.smsBody);
 		smsManagerBtn = (Button) findViewById(R.id.smsManager);
-		smsSendToBtn = (Button) findViewById(R.id.smsSIntent);
-		smsViewBtn = (Button) findViewById(R.id.smsVIntent);
+		//smsSendToBtn = (Button) findViewById(R.id.smsSIntent);
+		//smsViewBtn = (Button) findViewById(R.id.smsVIntent);
 
 		smsManagerBtn.setOnClickListener(new OnClickListener() {
 			 public void onClick(View view) {
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 			 }
 		});
 		
-		smsSendToBtn.setOnClickListener(new OnClickListener() {
+		/*smsSendToBtn.setOnClickListener(new OnClickListener() {
 			 public void onClick(View view) {
 				 sendSmsBySIntent();
 			 }
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 			 public void onClick(View view) {
 				 sendSmsByVIntent();
 			 }
-		});
+		});*/
 		
         //make button
         Button action = (Button) findViewById(R.id.button1);
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	public void sendSmsBySIntent() {
+	/*public void sendSmsBySIntent() {
 		// add the phone number in the data
 		Uri uri = Uri.parse("smsto:" + phoneNumber.getText().toString());
 		
@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
 			ex.printStackTrace();
 		}
 
-	}
+	}*/
     //set timer = false
     boolean timerTruth = false;
     
