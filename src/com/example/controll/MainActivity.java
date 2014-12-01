@@ -1,14 +1,18 @@
 package com.example.controll;
 
-import android.support.v7.app.ActionBarActivity;
+import java.util.Timer;
+import java.util.Random;
+import java.util.TimerTask;
+
+import android.R;
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import android.telephony.SmsManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -27,10 +31,10 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		phoneNumber = (EditText) findViewById(R.id.phoneNumber);
-		smsBody = (EditText) findViewById(R.id.smsBody);
-		smsManagerBtn = (Button) findViewById(R.id.smsManager);
+		
+		//phoneNumber = (EditText) findViewById(R.id.phoneNumber);
+		//smsBody = (EditText) findViewById(R.id.smsBody);
+		//smsManagerBtn = (Button) findViewById(R.id.smsManager);
 		//smsSendToBtn = (Button) findViewById(R.id.smsSIntent);
 		//smsViewBtn = (Button) findViewById(R.id.smsVIntent);
 
@@ -63,17 +67,30 @@ public class MainActivity extends Activity {
 					}
         		}
         );
-        
-        //make phone number array
-    	makeNumbersArray(); 
 
 	}
+	
+	//make random object
+	Random randomGen = new Random();
+	
+	//make array of embarrassing text messages
+	String[] messages = new String[] {
+		//insert messages here
+	};
 	
 	public void sendSmsByManager() {
 		try {
 			// Get the default instance of the SmsManager
 			SmsManager smsManager = SmsManager.getDefault();
-			smsManager.sendTextMessage(phoneNumber.getText().toString(), 
+			
+			//get random phone number
+			String[] phoneNumbers = makeNumbersArray();
+			String randNumber = phoneNumbers[randomGen.nextInt(phoneNumbers.length)];
+			
+			//get random message
+			String randMessage = messages[randomGen.nextInt(messages.length)];
+			
+ 			smsManager.sendTextMessage(randNumber, 
 					null,  
 					smsBody.getText().toString(), 
 					null, 
@@ -121,6 +138,7 @@ public class MainActivity extends Activity {
 		}
 
 	}*/
+	
     //set timer = false
     boolean timerTruth = false;
     
@@ -136,19 +154,14 @@ public class MainActivity extends Activity {
          }
     };
     
-    //make sendText method
-    public static void sendText() {
-    	
-    };
-    
     @Override
     public void onPause()
     {
-       //send SMS
+       //send SMS if timer = true
     }
     
     //make method that collects phone numbers in array
-    public void makeNumbersArray() { 
+    public String[] makeNumbersArray() { 
     	//make cursor that navigates contact data
     	ContentResolver cr = getContentResolver(); 
     	Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null); 	
@@ -179,6 +192,8 @@ public class MainActivity extends Activity {
     			index++;
     		}
     	}
+    	
+    	return phoneNumbers;
     }
     
     @Override
@@ -199,6 +214,5 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    
-}
+  
 }
