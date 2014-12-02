@@ -1,15 +1,64 @@
 package com.example.controll;
 
 import java.util.Timer;
+<<<<<<< Updated upstream
 import java.util.Random;
 import java.util.TimerTask;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+import java.util.TimerTask;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.view.Menu;
+import android.view.MenuItem;
+=======
+import java.util.Random;
+import java.util.TimerTask;
+>>>>>>> FETCH_HEAD
+=======
+import java.util.Random;
+import java.util.TimerTask;
+>>>>>>> FETCH_HEAD
+=======
+import java.util.Random;
+import java.util.TimerTask;
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 
 import android.R;
 import android.app.Activity;
 import android.content.ContentResolver;
+<<<<<<< Updated upstream
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+=======
+import android.database.Cursor;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+>>>>>>> FETCH_HEAD
+=======
+import android.database.Cursor;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+>>>>>>> FETCH_HEAD
+=======
+import android.database.Cursor;
+import android.os.Bundle;
+import android.provider.ContactsContract;
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
 import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -214,5 +263,24 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+<<<<<<< Updated upstream
   
 }
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+  
+}
+>>>>>>> FETCH_HEAD
+=======
+  
+}
+>>>>>>> FETCH_HEAD
+=======
+  
+}
+>>>>>>> FETCH_HEAD
+>>>>>>> Stashed changes
