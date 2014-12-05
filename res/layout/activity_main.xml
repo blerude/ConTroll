@@ -7,71 +7,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.controll.MainActivity" >
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-=======
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
-=======
->>>>>>> FETCH_HEAD
->>>>>>> Stashed changes
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Complete the fields to send a sms"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="ex: 1234567890"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/smsBody"
+        android:id="@+id/timer"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:layout_marginBottom="30dp"
-        android:hint="Write your sms here...." />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/controll_prompt" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
-        android:id="@+id/smsManager"
-        android:layout_width="fill_parent"
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send the sms by SmsManager" />
-
-    <Button
-        android:id="@+id/smsSIntent"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Send the sms by SENDTO" />
-
-    <Button
-        android:id="@+id/smsVIntent"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Send the sms by VIEW" />
-    
-    <Button
-    android:id="@+id/button1"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_alignParentTop="true"
-	android:layout_centerHorizontal="true"
-	android:layout_marginTop="138dp"
-	android:text="Send text" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="143dp"
+        android:text="@string/start_timer_button" />
     
 </RelativeLayout>
